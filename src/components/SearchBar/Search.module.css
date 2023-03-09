@@ -1,0 +1,6 @@
+.nav{
+    height: 23px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+};
