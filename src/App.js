@@ -4,7 +4,9 @@ import './App.css'
 import Cards from './components/Cards/Cards.jsx'
 import NavBar from './components/nav/nav';
 import About from './Views/about/About';
+import Detail from './components/detail/detail';
 import Landing from './Views/Landing/landing';
+import Forms from './components/forms/form';
 
 function App () {
 
@@ -38,6 +40,8 @@ function App () {
       <Route path='/' element={<Landing />}/>
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
       <Route path='/about' element={<About />}/>
+      <Route path='/detail/:detailId' element={<Detail/>} />
+      <Route path='/forms' element = {<Forms/>}/>
       </Routes>
     </div>
   )
