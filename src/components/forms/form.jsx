@@ -13,8 +13,14 @@ const Forms = () => {
     });
 
     const validacion = (Forms, Errors, setErrors) => {
-        if(!Forms.usuario) setErrors({...Errors, usuario: 'Rellene el input'});
-        else (setErrors({...Errors, usuario: ''}));
+        if(!Forms.usuario) 
+            setErrors({...Errors, usuario: 'Rellene el input'});
+        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(Forms.usuario)
+        ) {
+            setErrors({...Errors, usuario: 'Usuario invalido'});
+        } else {
+            setErrors({...Errors, usuario: ''});
+        }
     }
 
     const handleChange = (event) => {
@@ -22,7 +28,7 @@ const Forms = () => {
         const value = event.target.value;
 
         setForms({...Forms, [property]: value });
-        validacion(Forms, Errors, setErrors);
+        validacion({...Forms, [property]: value}, setErrors, Errors);
     };
 
     const submitHandler = (event) => {
@@ -36,6 +42,7 @@ const Forms = () => {
         <div className={style.label}>
         <label htmlFor="">Usuario</label>
         <input type="text" name="usuario" value={Forms.usuario} onChange={handleChange} />
+        <span>{Errors.usuario}</span>
         </div>
 
         <div className={style.label}>
