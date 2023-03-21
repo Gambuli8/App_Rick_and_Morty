@@ -1,0 +1,12 @@
+.h1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.p{
+    font-size: 25px;
+    color: aquamarine;
+}

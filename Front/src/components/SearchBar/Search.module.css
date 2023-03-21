@@ -1,0 +1,12 @@
+.buton{
+    background-color: aquamarine;
+    margin: 6px;
+    border-radius: 6px;
+}
+
+.input{
+    background-color: darkgray;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
