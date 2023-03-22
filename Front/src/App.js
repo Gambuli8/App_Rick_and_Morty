@@ -15,9 +15,9 @@ function App () {
 
   const onSearch = (id) => {
     const URL_BASE = 'http://localhost:3001/rickandmorty';
-    const KEY = 'b8e2f06d4ef1.5c46097a13acac51985d';
+    // const KEY = 'b8e2f06d4ef1.5c46097a13acac51985d';
     
-    fetch(`${URL_BASE}/character/${id}/?key=${KEY}`)
+    fetch(`${URL_BASE}/character/${id}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.name) {
