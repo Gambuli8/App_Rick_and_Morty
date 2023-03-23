@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css'
 import Cards from './components/Cards/Cards.jsx'
 import NavBar from './components/nav/nav';
@@ -13,11 +13,18 @@ function App () {
   const [characters, setCharacters] = useState([
   ]); 
 
+  const [access, setAccess] = useState(false);
+  const navigate = useNavigate();
+
+  const gmail = 'gerogambuli2002@gmail.com';
+  const password = 'gero1234';
+
+  const {pathname} = useLocation();
+
   const onSearch = (id) => {
     const URL_BASE = 'http://localhost:3001/rickandmorty';
-    // const KEY = 'b8e2f06d4ef1.5c46097a13acac51985d';
     
-    fetch(`${URL_BASE}/character/${id}`)
+    fetch(`${URL_BASE}/onsearch/${id}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.name) {
@@ -33,9 +40,18 @@ function App () {
       characters.filter((char) => char.id !== id));
   };
 
+  const login = (form) => {
+    if (form.email === gmail && form.contraseña === password) {
+      setAccess(true);
+      navigate('/home');
+    } else {
+      alert('datos incorretctos');
+    }
+  }
+
   return (
     <div className='App'>
-      <NavBar onSearch={onSearch} className='navBar' />
+      { pathname !== '/' && <NavBar onSearch={onSearch} className='navBar' />}
       <Routes>
       <Route path='/' element={<Landing />}/>
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>

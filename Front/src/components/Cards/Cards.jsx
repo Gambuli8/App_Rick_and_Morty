@@ -9,6 +9,7 @@ export default function Cards({characters, onClose}) {
       {
          characters.map(({id, name, species, gender, image}) => {
             return ( <Card
+                     key={id}
                      id={id}
                      name = {name}
                      species = {species}

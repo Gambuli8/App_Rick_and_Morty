@@ -4,14 +4,43 @@
     align-items: center;
     text-align: start;
     flex-direction: column;
-    background-color: #800000;
+    background-color: transparent;
     padding: 10px;
+    height: 300px;
 }
 
 .label{
     display: flex;
     justify-content: start;
-    margin: 7px;
+    margin: 10px;
+}
+
+.email{
+    display: flex;
+    justify-content: start;
+    margin: 10px;
+}
+
+.success{
+    font-size: 17px;
+    border: 3px solid green;
+    border-radius: 7px;
+    width: 280px;
+    cursor: auto;
+}
+
+.error{
+    font-size: 17px;
+    border: 3px solid red;
+    border-radius: 7px;
+    width: 280px;
+    cursor: auto;
+}
+
+.password{
+    font-size: 17px;
+    width: 200px;
+    border-radius: 7px;
 }
 
 .glow {
