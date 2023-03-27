@@ -12,12 +12,23 @@ const errorA = (error, res) => {
     res.end(error.message);
 };
 
-
-const getChairById = (res, ID) => {
-    Axios.get(`${URL}/character/${ID}`)
-    .then((response) => succesA(response, res))
-    .catch((error) => errorA(error, res))
+//!express
+const getChairById = (req, res, ID) => {
+    const params = req.params(ID);
+    Axios.get(`${URL}/character/${params}`)
+        .then((response) => succesA(response, res))
+        .catch((error) => errorA(error, res))
 };
+
+
+//!sin express
+
+// const getChairById = (res, ID) => {
+//     Axios.get(`${URL}/character/${ID}`)
+//     .then((response) => succesA(response, res))
+//     .catch((error) => errorA(error, res))
+// };
+
 
 
 module.exports = getChairById;

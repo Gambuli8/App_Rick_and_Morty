@@ -13,8 +13,9 @@ const errorA = (error, res) => {
 };
 
 
-const getChairByDetail = (res, ID) => {
-    Axios.get(`${URL}/character/${ID}`)
+const getChairByDetail = (res,req, ID) => {
+    const params = req.params(ID)
+    Axios.get(`${URL}/character/${params}`)
     .then((response) => succesA(response, res))
     .catch((error) => errorA(error, res))
 };

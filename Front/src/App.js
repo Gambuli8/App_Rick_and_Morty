@@ -6,7 +6,6 @@ import NavBar from './components/nav/nav';
 import About from './Views/about/About';
 import Detail from './components/detail/detail';
 import Landing from './Views/Landing/landing';
-import Forms from './components/forms/form';
 
 function App () {
  //! STATUS
