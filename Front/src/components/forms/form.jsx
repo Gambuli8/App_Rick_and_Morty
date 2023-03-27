@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from './forms.module.css';
 import validacion from './validacion';
 
-const Forms = () => {
+const Forms = ({Login}) => {
     const [form, setform] = useState({
         email:'',
         contraseña:'',
@@ -23,7 +23,7 @@ const Forms = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        alert('login excelente');
+        Login(form);
     };
 
 
@@ -31,14 +31,23 @@ const Forms = () => {
     <form onSubmit={submitHandler} className={style.formulario}>
         <div className={style.label}>
         <label htmlFor="email" className={style.email}>Email</label>
-        <input type="text" name="email" value={form.email} onChange={handleChange} className={errors.email ? style.error : style.success} />
+        <input 
+        type="text" 
+        name="email" 
+        value={form.email} 
+        onChange={handleChange} 
+        className={errors.email ? style.error : style.success} />
         <span>{errors.email}</span>
         </div>
 
-
         <div className={style.label}>
         <label htmlFor="Password" className={style.label}>Contraseña</label>
-        <input type="text" name="contraseña" value={form.contraseña}  onChange={handleChange} className={style.password} />
+        <input 
+        type="text" 
+        name="contraseña" 
+        value={form.contraseña}  
+        onChange={handleChange} 
+        className={style.password} />
         </div>
         <button type="submit" className={style.glow}>INGRESAR</button>
     </form>

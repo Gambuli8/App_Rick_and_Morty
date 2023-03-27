@@ -1,3 +1,4 @@
+require('dotenv').config();
 const http = require('http');
 const getChairById = require('./controllers/getCharById');
 const getChairByDetail = require('./controllers/getCharDetail');

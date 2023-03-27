@@ -1,6 +1,5 @@
 const Axios = require('axios');
-const URL = 'https://rickandmortyapi.com/api';
-// const KEY = 'b8e2f06d4ef1.5c46097a13acac51985d';
+const {URL} = process.env;
 
 const succesA = (response, res) => {
     const {id, image, name, gender, status, origin, species} = response.data;
