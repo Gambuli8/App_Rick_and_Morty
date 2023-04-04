@@ -1,50 +1,19 @@
-require('dotenv').config();
-
 //! SERVIDOR CON EXPRESS
+require('dotenv').config();
 const express = require('express');
-const server = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const router = require('./routes/index');
-// const getChairById = require('./controllers/getCharById');
-// const getChairByDetail = require('./controllers/getCharDetail');
+const morgan = require('morgan');
+const cors = require('cors');
 
-        server.use(express.json())
+        const server = express();
+
+        server.use(express.json());
+        server.use(morgan('dev'));
+        server.use(cors());
+
         server.use('/', router);
 
 server.listen(PORT, () => {
         console.log('Server raised in port ' + PORT);
      });
-
-
-
-
-
-
-    
-    //! SERVIDOR SIN EXPRESS
-    // const http = require('http');
-    // const getChairById = require('./controllers/getCharById');
-    // const getChairByDetail = require('./controllers/getCharDetail');
-    
-    
-    // http.createServer((req, res) => {
-    //     res.setHeader('Access-Control-Allow-Origin', '*');
-    
-    //     const {url} = req;
-        
-    //     if(url.includes('onsearch')){
-    //         const ID = url.split('/').at(-1);
-    //         getChairById(res, ID);
-    //     };
-    
-    //     if(url.includes('detail')){
-    //         const ID = url.split('/').at(-1);
-    //         getChairByDetail(res, ID);
-    //     };
-        
-    // }).listen(3001, 'localhost')
-    
-
-
-
-

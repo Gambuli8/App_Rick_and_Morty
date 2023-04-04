@@ -8,23 +8,18 @@ const Detail = () => {
     const [character, setCharacter] = useState({});
 
     useEffect(() => {
-    const URL_BASE = 'http://localhost:3001/rickandmorty';
+    const URL_BASE = 'http://localhost:3001';
     // const KEY = 'b8e2f06d4ef1.5c46097a13acac51985d';
 
     fetch(`${URL_BASE}/detail/${detailId}`)
     .then((response) => response.json())
     .then((char) => {
-        if (char.name) {
-        setCharacter(char);
-        } else {
-        window.alert("No hay personajes con ese ID");
-        }
-    })
+        if (char.name) setCharacter(char)})
     .catch((err) => {
-        window.alert("No hay personajes con ese ID");
+        window.alert('Error: ' + err);
     });
     return setCharacter({});
-    }, []);
+    }, [detailId]);
 
     return (
     <div>

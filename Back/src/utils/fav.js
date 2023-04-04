@@ -1,8 +1,4 @@
+let Fav = [];
 
 
-const Fav = () => {
-    const arrayvacio = [];
-    return (
-        arrayvacio
-    )
-}
+module.exports = Fav;

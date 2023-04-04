@@ -11,13 +11,13 @@
 
 .label{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 10px;
 }
 
 .email{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     margin: 10px;
 }
 

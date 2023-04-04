@@ -27,7 +27,7 @@
     font-family: 'Inconsolata', monospace;
     font-size: 30px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     color: cyan;
     margin: 4px;

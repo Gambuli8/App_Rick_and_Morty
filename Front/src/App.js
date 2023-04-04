@@ -6,6 +6,7 @@ import NavBar from './components/nav/nav';
 import About from './Views/about/About';
 import Detail from './components/detail/detail';
 import Landing from './Views/Landing/landing';
+import Favorite from './components/Favorite/favorite';
 
 function App () {
  //! STATUS
@@ -30,7 +31,7 @@ function App () {
 
   //!ONSEARCH
   const onSearch = (id) => {
-    const URL_BASE = 'http://localhost:3001/rickandmorty';
+    const URL_BASE = 'http://localhost:3001';
     
     fetch(`${URL_BASE}/onsearch/${id}`)
     .then((res) => res.json())
@@ -65,6 +66,7 @@ function App () {
       { pathname !== '/' && <NavBar onSearch={onSearch} className='navBar' />}
       <Routes>
       <Route path='/' element={<Landing Login={Login} />}/>
+      <Route path='/favorite' element={<Favorite />} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
       <Route path='/detail/:detailId' element={<Detail/>} />
       <Route path='/about' element={<About />}/>
